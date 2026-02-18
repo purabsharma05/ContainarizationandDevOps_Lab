@@ -1,0 +1,35 @@
+# -------- STAGE 1 : Builder --------
+FROM python:3.9-slim AS builder
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+# virtual environment create
+RUN python -m venv /opt/venv
+
+ENV PATH="/opt/venv/bin:$PATH"
+
+# install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+
+# -------- STAGE 2 : Runtime --------
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# copy only installed packages
+COPY --from=builder /opt/venv /opt/venv
+
+ENV PATH="/opt/venv/bin:$PATH"
+
+COPY app.py .
+
+# non-root user (security)
+RUN useradd -m -u 1000 appuser
+USER appuser
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
