@@ -17,7 +17,7 @@ mkdir my-flask-app
 cd my-flask-app
 ```
 
-![Setup](IMG - 01.png)
+![Setup](./images/IMG - 01.png)
 
 
 ### app.py
@@ -38,7 +38,7 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 ```
 
-![Setup](IMG - 02.png)
+![Setup](./images/IMG - 02.png)
 
 
 ### requirements.txt
@@ -47,7 +47,7 @@ if __name__ == '__main__':
 Flask==2.3.3
 ```
 
-![Setup](IMG - 03.png)
+![Setup](./images/IMG - 03.png)
 
 
 ---
@@ -77,7 +77,7 @@ EXPOSE 5000
 CMD ["python", "app.py"]
 ```
 
-![Setup](IMG - 04.png.png)
+![Setup](./images/IMG - 04.png)
 
 
 ---
@@ -110,7 +110,7 @@ venv/
 logs/
 ```
 
-![Setup](IMG - 05.png)
+![Setup](./images/IMG - 05.png)
 
 
 ## Why .dockerignore is Important
@@ -131,7 +131,7 @@ docker build -t my-flask-app .
 docker images
 ```
 
-![Setup](IMG - 06.png)
+![Setup](./images/IMG - 06.png)
 
 
 ## Step 2: Tagging Images
@@ -142,7 +142,7 @@ docker tag my-flask-app:latest my-flask-app:v1.0
 docker tag my-flask-app:latest username/my-flask-app:1.0
 ```
 
-![Setup](IMG - 07.png)
+![Setup](./images/IMG - 07.png)
 
 
 ## Step 3: View Image Details
@@ -163,7 +163,7 @@ docker inspect my-flask-app
 docker run -d -p 5000:5000 --name flask-container my-flask-app
 ```
 
-![Setup](IMG - 08.png)
+![Setup](./images/IMG - 08.png)
 
 
 Test application:
@@ -171,7 +171,7 @@ Test application:
 ```bash
 curl http://localhost:5000
 ```
-![Setup](IMG - 09.png)
+![Setup](./images/IMG - 09.png)
 
 Check running containers:
 
@@ -180,7 +180,7 @@ docker ps
 docker logs flask-container
 ```
 
-![Setup](IMG - 10.png)
+![Setup](./images/IMG - 10.png)
 
 
 ---
@@ -232,7 +232,7 @@ EXPOSE 5000
 CMD ["python", "app.py"]
 ```
 
-![Setup](IMG - 11.png)
+![Setup](./images/IMG - 11.png)
 
 
 ## Build and Compare
@@ -243,10 +243,9 @@ docker build -f Dockerfile.multistage -t flask-multistage .
 docker images | grep flask
 ```
 
-![Setup](IMG - 11.png)
+![Setup](./images/IMG - 11.png)
 
-![Setup](IMG - 11.png)
-
+![Setup](./images/IMG - 11.png)
 
 Expected:
 - flask-regular → ~250MB  
@@ -276,7 +275,7 @@ docker pull username/my-flask-app:latest
 docker run -d -p 5000:5000 username/my-flask-app:latest
 ```
 
-![Setup](images/16.png)
+![Setup](./images/IMG - 11.png)
 
 
 ---
@@ -303,7 +302,7 @@ app.listen(port, () => {
 });
 ```
 
-![Setup](images/17.png)
+![Setup](./images/IMG - 10.png)
 
 
 ## Dockerfile
@@ -321,10 +320,10 @@ EXPOSE 3000
 CMD ["node", "app.js"]
 ```
 
-![Setup](images/18.png)
+![Setup](./images/IMG - 09.png)
 
 
-![Setup](images/19.png)
+![Setup](./images/IMG - 08.png)
 
 
 ## Build & Run
@@ -335,9 +334,9 @@ docker run -d -p 3000:3000 --name node-container my-node-app
 curl http://localhost:3000
 ```
 
-![Setup](images/20.png)
+![Setup](./images/IMG - 07.png)
 
-![Setup](images/21.png)
+![Setup](./images/IMG - 06.png)
 
 
 ---
@@ -380,10 +379,10 @@ docker run -d -p 80:8080 --name prod-app myapp:v1.0
 docker logs -f prod-app
 ```
 
-![Setup](images/22.png)
+![Setup](./images/IMG - 05.png)
 
 
-![Setup](images/23.png)
+![Setup](./images/IMG - 04.png)
 
 ---
 

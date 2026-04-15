@@ -10,8 +10,7 @@ A Flask-based web app is containerized using a Dockerfile, built into an image, 
 
 The application displays the following information:
 
-- **Aakriti – SAP ID: 500119552**
-- **Kinjal – SAP ID: 500123394**
+- **Purab Sharma – SAP ID: 500121924**
 
 ---
 
@@ -35,7 +34,7 @@ The application displays the following information:
 mkdir Experiment-3-WebApp
 cd Experiment-3-WebApp
 ```
-![](./images/image1.jpeg)
+![](./images/IMG - 01.png)
 
 ### Step 2: Create Flask App (app.py)
 ```bash
@@ -47,15 +46,14 @@ app = Flask(__name__)
 def home():
     return """
     <h1>Experiment 3: Deploying Web Applications with Docker</h1>
-    <h2>Aakriti - SAP ID: 500119552</h2>
-    <h2>Kinjal - SAP ID: 500123394</h2>
+    <h2>Purab Sharma - SAP ID: 500121924</h2>
     """
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
 ```
 
-![](./images/image2.jpeg)
+![](./images/IMG - 02.png)
 
 ### Step 3: Add Requirements File
 ```bash
@@ -63,7 +61,7 @@ flask
 ```
 
 Create requirements.txt
-![](./images/image3.jpeg)
+![](./images/IMG - 03.png)
 
 ### Step 4: Write Dockerfile
 ```bash
@@ -77,22 +75,22 @@ RUN pip install -r requirements.txt
 
 CMD ["python", "app.py"]
 ```
-![](./images/image4.jpeg)
+![](./images/IMG - 04.png)
 
 ### Step 5: Build Docker Image
 ```bash
 docker build -t experiment3-webapp .
 ```
-![](./images/image5.jpeg)
+![](./images/IMG - 05.png)
 
 ### Step 6: Run Docker Container
 ```bash
 docker run -d -p 8080:5000 experiment3-webapp
 ```
 
-![](./images/image6.jpeg)
+![](./images/IMG - 06.png)
 
-![](./images/image7.jpeg)
+![](./images/IMG - 07.png)
 
 ### Step 7: Verify Deployment
 
@@ -100,7 +98,7 @@ Open browser:
 
 http://localhost:8080
 
-![](./images/image8.jpeg)
+![](./images/IMG - 08.png)
 
 
 ### Step 8: Check Logs
@@ -108,7 +106,7 @@ http://localhost:8080
 docker logs <container-id>
 ```
 
-![](./images/image9.jpeg)
+![](./images/IMG - 09.png)
 
 ### Step 9: Stop the container
 ```bash
@@ -116,7 +114,7 @@ docker stop 7b78
 1d3ca2ae
 ```
 
-![](./images/image9.jpeg)
+![](./images/IMG - 09.png)
 
 ## Result
 
